@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.py": "python",
+        "gif_lib.h": "c",
+        "python.h": "c"
+    }
+}
