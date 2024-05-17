@@ -26,9 +26,5 @@
             
         }
     ]
-    "args": [
-        "-I",
-        "C:/users/tammi/ProjectFM/Include"
-    ]
     
 }
