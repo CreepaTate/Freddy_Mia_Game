@@ -15,15 +15,20 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
     // Register the window class
     if (!RegisterClassW(&wc)) {
+        OutputDebugString(L"Error registering window class\n"); // Print error message
         return -1;
     }
 
     // Create the window
-    CreateWindowW(L"MyWindowClass", L"Freddy & Mia (Early)", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 1280, 720, NULL, NULL, NULL, NULL);
+    HWND hWnd = CreateWindowW(L"MyWindowClass", L"Freddy & Mia (Early)", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 1280, 720, NULL, NULL, NULL, NULL);
+    if (!hWnd) {
+        OutputDebugString(L"Error creating window\n"); // Print error message
+        return -1;
+    }
 
     // Message loop
     MSG msg = {0};
-    while ( GetMessage(&msg, NULL, 0, 0) ) {
+    while (GetMessage(&msg, NULL, 0, 0)) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
